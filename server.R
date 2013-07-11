@@ -8,7 +8,7 @@ shinyServer(function(input, output) {
     idm <- ifelse(input$type=="number", 3, 6)
     idf <- ifelse(input$type=="number", 4, 7)
     ids <- which(fig1$year==input$year)
-    dataset <- data.frame(合計 = fig1[ids,idt], male = fig1[ids,idm], female = fig1[ids,idf])
+    dataset <- data.frame(total = fig1[ids,idt], male = fig1[ids,idm], female = fig1[ids,idf])
     rownames(dataset) <- fig1[ids, 1]
     dataset
   })
