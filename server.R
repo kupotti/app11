@@ -8,7 +8,7 @@ shinyServer(function(input, output) {
     idm <- ifelse(input$type=="number", 3, 6)
     idf <- ifelse(input$type=="number", 4, 7)
     ids <- which(fig1$year==input$year)
-    dataset <- data.frame(合計 = fig1[ids,idt], 男性 = fig1[ids,idm], 女性 = fig1[ids,idf])
+    dataset <- data.frame(合計 = fig1[ids,idt], male = fig1[ids,idm], female = fig1[ids,idf])
     rownames(dataset) <- fig1[ids, 1]
     dataset
   })
@@ -19,12 +19,12 @@ shinyServer(function(input, output) {
     ymax <- ifelse(input$type=="number", 35000, 45)
     if(input$type=="number"){
       auxline <- seq(5000, 35000, 5000)
-      ylab <- "自殺死亡数（人）"
-      main <- "第1-a図　自殺死亡の年次推移：自殺死亡数"
+      ylab <- "the number of suicide (persons)"
+      main <- "Fig. 1-a. The number of suicide"
     } else{
       auxline <- seq(5, 45, 5)
-      ylab <- "自殺死亡率（対10万）"
-      main <- "第1-b図　自殺死亡の年次推移：自殺死亡率"
+      ylab <- "the suicide rate (persons per 10000)"
+      main <- "Fig. 1-a. The suicide rate"
     }
     plot(fig1[, c(idy, idt)], type = "l", main = main, ylim = c(0, ymax), ylab = ylab, xlab = "Year", family="IPAGothic")
     par(new = T)
