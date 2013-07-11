@@ -33,7 +33,7 @@ shinyServer(function(input, output) {
     plot(fig1[, c(idy, idf)], type = "l", col = "red", ylim = c(0, ymax), ylab = ylab, xlab = "Year", family="IPAGothic")
     abline(h = auxline, lty = 2, col = "gray")
     abline(v = input$year)
-    legend(1950, auxline[length(auxline)], c("総数", "男性", "女性"), lty = 1, col = c("black","blue","red"))
+    legend(1950, auxline[length(auxline)], c("total", "male", "female"), lty = 1, col = c("black","blue","red"))
   })
   output$data <- reactiveTable(function(){
     selectedyear()
